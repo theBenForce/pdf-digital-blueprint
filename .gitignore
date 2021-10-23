@@ -1,0 +1,5 @@
+obj/
+bin/
+foxit-lib
+.vscode/
+Constants.cs
