@@ -88,6 +88,9 @@ namespace pdf_example
             var sourceLocation = new RectF(36f, 36f, pageWidth - 36f, pageHeight - 64f);
             page.AddText(sourceList, sourceLocation, bodyStyle);
 
+            page.Normalize();
+            page.GenerateContent();
+
             using (var annot = page.AddAnnot(Annot.Type.e_Stamp, new RectF(36, 36, 200, 200)))
             {
               var stamp = new Stamp(annot);
@@ -96,9 +99,6 @@ namespace pdf_example
               stamp.SetImage(image, 0, 0);
               stamp.ResetAppearanceStream();
             }
-
-            page.Normalize();
-            page.GenerateContent();
           }
 
           Console.WriteLine("Saving to output.pdf");
